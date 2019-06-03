@@ -1,5 +1,5 @@
 # Exercice TodoList
 
-La branche `master` vous donne le rendu souhaité.
+## Etape 2
 
-Pour commencer `git checkout step-1`
+Ajouter au tableau HTML un `button` supprimer qui lorsqu'il est `click` appel une `method remove` qui supprime la tache du tableau taches.
