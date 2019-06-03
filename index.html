@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <title>TodoList</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="app" class="container-fluid my-3">
+      <div class="row">
+        <div class="col">
+          <div class="card shadow">
+            <div class="card-header">
+              <form @submit.prevent="add">
+                <div class="form-row">
+                  <div class="col-8">
+                    <input type="text" class="form-control" :class="{'is-invalid': error}" v-model="nom" placeholder="Nom de tâche" />
+                  </div>
+                  <div class="col-4">
+                    <input type="submit" class="form-control" />
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="card-body p-0">
+              <table class="table" style="table-layout:fixed">
+                <thead>
+                  <tr>
+                    <th class="text-center border-0" width="10%" scope="col">#</th>
+                    <th class="border-0" width="70%" scope="col">Tache</th>
+                    <th class="border-0" width="10%" scope="col">Fait</th>
+                    <th class="text-center border-0" width="10%" scope="col">Supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(tache, index) of taches" :key="tache.id" :class="{'table-success': tache.done}">
+                    <td class="text-center align-middle" scope="row">{{ tache.id }}</td>
+                    <td class="align-middle">{{ tache.nom }}</td>
+                    <td class="align-middle">
+                      <div class="custom-control custom-checkbox">
+                        <input type="checkbox" :id="`check${tache.id}`" class="custom-control-input" v-model="tache.done">
+                        <label class="custom-control-label" :for="`check${tache.id}`"></label>
+                      </div>
+                    </td>
+                    <td class="align-middle">
+                      <button class="btn btn-sm btn-block btn-danger" @click="remove(index)">Supprimer</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script src="todolist.js"></script>
+  </body>
+</html>
