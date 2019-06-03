@@ -1,5 +1,7 @@
 # Exercice TodoList
 
-La branche `master` vous donne le rendu souhaité.
+## Etape 1
 
-Pour commencer `git checkout step-1`
+Ajouter en data un tableau de taches avec comme tache l'objet `{ id: number, nom: string, done: bool }`
+
+Afficher le tableau de taches dans un tableau HTML
